@@ -26,7 +26,7 @@ st.set_page_config(
 # LOAD DATASET
 # ==================================================
 
-df = pd.read_csv("data/insurance.csv")
+df = pd.read_csv("./data/insurance.csv")
 
 # ==================================================
 # LOAD MODEL
