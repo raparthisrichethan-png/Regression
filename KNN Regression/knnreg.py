@@ -38,18 +38,18 @@ df = pd.read_csv(csv_path)
 # ==================================================
 
 try:
-    model = pickle.load(
-        open("models/knn_model.pkl", "rb")
-    )
+    BASE_DIR = Path(__file__).resolve().parent
 
-    scaler = pickle.load(
-        open("models/scaler.pkl", "rb")
-    )
+    model_path = BASE_DIR / "models" / "knn_model.pkl"
+    scaler_path = BASE_DIR / "models" / "scaler.pkl"
 
-except:
+    model = pickle.load(open(model_path, "rb"))
+    scaler = pickle.load(open(scaler_path, "rb"))
+
+except Exception as e:
+    st.error(f"Model Loading Error: {e}")
     model = None
     scaler = None
-
 # ==================================================
 # SIDEBAR
 # ==================================================
